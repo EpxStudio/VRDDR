@@ -4,6 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "Engine/DataAsset.h"
+#include "Sound/SoundBase.h"
+#include "SongStep.h"
+
 #include "SongData.generated.h"
 
 /**
@@ -15,8 +18,13 @@ class VRDDR_API USongData : public UDataAsset
 	GENERATED_BODY()
 	
 public:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Metadata")
-	FText songName;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Metadata")
+	FText SongName;
 	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Audio")
+	USoundBase* SoundCue;
 	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Audio")
+	TArray<FSongStep> Steps;
+
 };
